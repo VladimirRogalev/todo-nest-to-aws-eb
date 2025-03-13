@@ -50,10 +50,7 @@ export class AppService {
         if (!todo) {
             return null;
         }
-        todo.title = updateTodoDto.title;
-        todo.description = updateTodoDto.description;
-        todo.date = updateTodoDto.date;
-        todo.completed = updateTodoDto.completed;
+        Object.assign(todo, updateTodoDto)
         return todo;
 
     }
@@ -62,7 +59,6 @@ export class AppService {
         if (!todo) {
             return null;
         }
-        // if (updateTodoDto.completed !== undefined)
         todo.completed = updateTodoDto.completed;
         return todo;
     }
